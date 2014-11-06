@@ -73,11 +73,25 @@ class SHLoadingIndicator:UIView {
         smallerShadeLayer!.lineWidth = borderWidth!;
         
         
+        
+        biggerShadeLayer!.shadowColor = borderColor!.CGColor;
+        biggerShadeLayer!.shadowOffset = CGSizeMake(0.0, 0.0);
+        biggerShadeLayer!.shadowOpacity = 1;
+        biggerShadeLayer!.shadowRadius = radius;
+        
+        smallerShadeLayer!.shadowColor = borderColor!.CGColor;
+        smallerShadeLayer!.shadowOffset = CGSizeMake(0.0, 0.0);
+        smallerShadeLayer!.shadowOpacity = 1;
+        smallerShadeLayer!.shadowRadius = radius1;
+        
+        
         biggerShadeLayer!.path = blueHalf.CGPath;
         smallerShadeLayer!.path = blueHalf1.CGPath;
         
         self.layer.addSublayer(smallerShadeLayer);
         self.layer.addSublayer(biggerShadeLayer);
+//        self.layer.addSublayer(biggerShadowLayer);
+//        self.layer.addSublayer(smallerShadowLayer);
 
         var rotationAnimation1:CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z");
         rotationAnimation1.fromValue = NSNumber(float: 0.0);
